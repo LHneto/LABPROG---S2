@@ -4,7 +4,7 @@ int memo[100];
 
 int fibonacci(int n) {
     if (n <= 0) {
-        printf("Por favor, forneça um valor de n positivo.\n");
+        printf("Digite um valor de n positivo.\n");
         return -1; 
     } else if (n == 1) {
         return 0;
