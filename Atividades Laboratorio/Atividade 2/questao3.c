@@ -1,20 +1,26 @@
 #include <stdio.h>
-#include <math.h>
+#include <stdlib.h>
 
-void power(int base, int exponent) {
-    double result = pow(base, exponent);
-    printf("%d elevado a %d é igual a %.0lf\n", base, exponent, result);
+int power(int base, unsigned int exponent) {
+    // Caso base: se o expoente for 0, retorna 1
+    if (exponent == 0) {
+        return 1;
+    }
+
+    return base * power(base, exponent - 1);
 }
 
 int main() {
-    int base, exponent;
+    int base;
+    unsigned int exponent;
 
     printf("Digite o número base: ");
     scanf("%d", &base);
-    printf("Digite o expoente: ");
-    scanf("%d", &exponent);
+    printf("Digite o expoente (deve ser um número inteiro positivo): ");
+    scanf("%u", &exponent);
 
-    power(base, exponent);
+    int result = power(base, exponent);
+    printf("%d elevado a %u é igual a %d\n", base, exponent, result);
 
     return 0;
 }
