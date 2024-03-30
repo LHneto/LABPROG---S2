@@ -23,7 +23,7 @@ int main() {
     printf("Digite o expoente (deve ser um número inteiro positivo): ");
     scanf("%d", &exponent);
 
-if (base < 0) {
+    if (base < 0) {
         printf("A base deve ser positivo.\n");
         return 1; 
     }
