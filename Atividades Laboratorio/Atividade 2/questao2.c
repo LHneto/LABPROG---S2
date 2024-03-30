@@ -18,7 +18,7 @@ int power(int base, int exponent) {
 int main() {
     int base, exponent;
 
-    printf("Digite o número base: ");
+    printf("Digite o número base (deve ser um número inteiro positivo): ");
     scanf("%d", &base);
     printf("Digite o expoente (deve ser um número inteiro positivo): ");
     scanf("%d", &exponent);
