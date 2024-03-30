@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+int memo[100];
+
 int fibonacci(int n) {
     if (n <= 0) {
         printf("Por favor, forneça um valor de n positivo.\n");
@@ -8,19 +10,28 @@ int fibonacci(int n) {
         return 0;
     } else if (n == 2) {
         return 1;
+    } else if (memo[n] != 0) {
+        return memo[n]; 
+    } else {
+        memo[n] = fibonacci(n - 1) + fibonacci(n - 2); 
+        return memo[n];
     }
-
-    int a = 0, b = 1, temp;
-    for (int i = 3; i <= n; i++) {
-        temp = a + b;
-        a = b;
-        b = temp;
-    }
-    return b;
 }
 
 int main() {
-    int n = 10;
-    printf("O %do termo da sequência de Fibonacci é %d\n", n, fibonacci(n));
+    int n;
+
+    for (int i = 0; i < 100; i++) {
+        memo[i] = 0;
+    }
+
+    printf("Digite um valor inteiro positivo para n: ");
+    scanf("%d", &n);
+
+    int result = fibonacci(n);
+    if (result != -1) {
+        printf("O %d-ésimo termo da sequência de Fibonacci é %d\n", n, result);
+    }
+
     return 0;
 }
