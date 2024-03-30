@@ -19,6 +19,11 @@ int main() {
     printf("Digite o expoente (deve ser um número inteiro positivo): ");
     scanf("%u", &exponent);
 
+     if (exponent < 0) {
+        printf("O expoente deve ser positivo.\n");
+        return 1; 
+    }
+    
     int result = power(base, exponent);
     printf("%d elevado a %u é igual a %d\n", base, exponent, result);
 
